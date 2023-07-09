@@ -23,7 +23,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('DB', function () {
+Route::get('/DB', function () {
     return view('dbcheck');
 });
 
@@ -45,6 +45,28 @@ Route::get('deleteProduct/{id}', [ProductsController::class, 'deleteProduct']);
 Route::post ('updateProducts', [ProductsController::class, 'updateProducts']);
 
 Route::get('editProduct/{id}', [ProductsController::class, 'editProduct']);
+
+
+
+// Route::get('testapi', [ProductsController::class, 'test']);
+
+
+//Route test pour l'authentification 
+
+// Route de connexion
+Route::post('/login', 'AuthController@login');
+
+// Route d'inscription
+Route::post('/register', 'AuthController@register');
+
+// Route de déconnexion
+Route::post('/logout', 'AuthController@logout')->middleware('auth:api');
+
+// Autres routes nécessitant une authentification
+
+
+
+
 
 
 
